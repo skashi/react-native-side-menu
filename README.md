@@ -56,6 +56,7 @@ class Application extends React.Component {
 | ---- | ---- | ----| ---- |
 | menu | inherited | React.Component | Menu component |
 | isOpen |false | Boolean | Props driven control over menu open state |
+| touchSideMenuToClose |true | Boolean | When true, menu closes when it is touched |
 | openMenuOffset | 2/3 of device screen width | Number | Content view left margin if menu is opened |
 | hiddenMenuOffset | none | Number | Content view left margin if menu is hidden |
 | edgeHitWidth | none | Number | Edge distance on content view to open side menu, defaults to 60 |

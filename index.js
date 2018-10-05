@@ -28,6 +28,7 @@ type Props = {
   onAnimationComplete: Function,
   onStartShouldSetResponderCapture: Function,
   isOpen: bool,
+  touchSideMenuToClose: bool,
   bounceBackOnOverdraw: bool,
   autoClosing: bool
 };
@@ -68,12 +69,14 @@ export default class SideMenu extends React.Component {
   state: State;
   prevLeft: number;
   isOpen: boolean;
+  touchSideMenuToClose: boolean;
 
   constructor(props: Props) {
     super(props);
 
     this.prevLeft = 0;
     this.isOpen = !!props.isOpen;
+    this.touchSideMenuToClose = !!props.touchSideMenuToClose;
 
     const initialMenuPositionMultiplier = props.menuPosition === 'right' ? -1 : 1;
     const openOffsetMenuPercentage = props.openMenuOffset / deviceScreen.width;
@@ -136,7 +139,7 @@ export default class SideMenu extends React.Component {
 
     if (this.isOpen) {
       overlay = (
-        <TouchableWithoutFeedback onPress={() => this.openMenu(false)}>
+        <TouchableWithoutFeedback onPress={() => this.touchSideMenuToClose && this.openMenu(false)}>
           <View style={styles.overlay} />
         </TouchableWithoutFeedback>
       );
@@ -273,6 +276,7 @@ SideMenu.propTypes = {
   onAnimationComplete: PropTypes.func,
   onStartShouldSetResponderCapture: PropTypes.func,
   isOpen: PropTypes.bool,
+  touchSideMenuToClose: PropTypes.bool,
   bounceBackOnOverdraw: PropTypes.bool,
   autoClosing: PropTypes.bool,
 };
@@ -302,6 +306,7 @@ SideMenu.defaultProps = {
   }),
   onAnimationComplete: () => {},
   isOpen: false,
+  touchSideMenuToClose: true,
   bounceBackOnOverdraw: true,
   autoClosing: true,
 };
