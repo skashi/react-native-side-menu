@@ -8,7 +8,7 @@
 
 ### Installation
 ```bash
-npm install react-native-side-menu --save
+npm install react-native-side-menu-with-touch-option --save
 ```
 
 ### Usage example
