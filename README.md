@@ -1,7 +1,4 @@
 ## Customizable side menu for react-native
-<p align="center">
-  <img src ="http://oi61.tinypic.com/2n9l2dz.jpg" />
-</p>
 
 ### Content
 - [Installation](#installation)
